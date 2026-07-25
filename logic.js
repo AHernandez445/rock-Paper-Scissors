@@ -7,8 +7,12 @@ const RPSButton = document.getElementById("RPSButton");
 let user;
 let winner;
 let output = document.getElementById("output");
+let finalWinner = document.getElementById("finalWinner");
+let compWins;
+let userWins;
 
-RPSButton.addEventListener("click", function() {
+
+function playRound(){
     user = window.prompt("Please enter rock, paper, or scissors");
     
     // first step is to take the random input for the computer
@@ -30,35 +34,56 @@ RPSButton.addEventListener("click", function() {
     if(comp === user){
     console.log("Tie");
     winner = "Tie";
+    output.insertAdjacentHTML("beforeend", "<p>Tie</p>");
     }
     else if(user === "rock" && comp === "scissor"){
         console.log("User wins");
-        winner = "User wins";
-        output.textContent = winner;
+        winner = "User wins ";
+        output.insertAdjacentHTML("beforeend", "<p>User wins</p>");
+        userWins++
     }
     else if(user === "paper" && comp === "rock"){ 
         console.log("User wins");
-        winner = "User wins";
-        output.textContent = winner;
+        winner = "User wins ";
+        output.insertAdjacentHTML("beforeend", "<p>User wins</p>");
+        userWins++
     }
     else if(user === "scissors" && comp === "paper"){
         console.log("User wins");
-        winner = "User wins";
-        output.textContent = winner;
+        winner = "User wins ";
+        output.insertAdjacentHTML("beforeend", "<p>User wins</p>");
+        userWins++
     }
     else{
         console.log("Comnputer wins");
         winner = "Computer wins";
-        output.textContent = winner;
+        output.insertAdjacentHTML("beforeend", "<p>Computer wins</p>");
+        compWins++
     }
 
-});
-console.log(user);
+}
+
+function playGame() {
+    for(let i = 0; i < 5; i++){
+        playRound();
+    }
+    if(userWins === compWins){
+        playRound();
+    }
+    if(userWins > compWins){
+        finalWinner.textContent = "You won best out of five;)";
+    }
+    else{
+        finalWinner.textContent = "Computer won best out of five :(";
+    }
+}
+RPSButton.addEventListener("click", playGame);
+
+
 // make if else statments comparing their choices using the guide of the rules for the game and simply print out who wins. 
 // if user and comp are equal print tie
 // if user has better then user wins
 // else comp wins
-
 
 
 
