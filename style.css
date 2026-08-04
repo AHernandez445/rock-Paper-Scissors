@@ -1,0 +1,15 @@
+html{
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+.rps{
+    margin-left: 10px;
+}
+#Rock{
+    border: 1px solid black;
+}
