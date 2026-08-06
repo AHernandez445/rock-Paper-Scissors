@@ -1,15 +1,28 @@
-html{
+.bigger-container{
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-
 .container{
     display: flex;
     justify-content: center;
+}
+.container-two{
+    text-align: center;
 }
 
 .rps{
     margin-left: 10px;
 }
-#Rock{
+#rock, #paper, #scissors{
     border: 1px solid black;
 }
+.container img{
+    width: 300px;
+    height: 325px;
+}
+.container img:hover{
+    border: 5px solid black;
+}
+
